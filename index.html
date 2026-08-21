@@ -3,746 +3,789 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="DearMe — a cute personal diary for thoughts, goals, memories and moments.">
+<meta name="description"
+      content="DearMe — a cute personal diary for thoughts, goals, memories and moments.">
 
-    <title>DearMe — My Little Diary</title>
+<meta name="theme-color"
+      content="#e79aaa">
 
+<title>DearMe — My Little Diary</title>
 
-    <!-- =========================
-         GOOGLE FONTS
-    ========================== -->
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+<!-- PWA MANIFEST -->
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+<link rel="manifest"
+      href="manifest.json">
 
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
 
+<!-- GOOGLE FONTS -->
 
-    <!-- =========================
-         CSS
-    ========================== -->
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
 
-    <style>
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
 
-        :root {
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
 
-            --paper: #fffaf4;
 
-            --pink: #e79aaa;
+<style>
 
-            --dark-pink: #d96c8a;
+/* =========================
+   COLORS
+========================= */
 
-            --soft-pink: #fff0f3;
+:root {
 
-            --text: #333333;
+    --paper: #fffaf4;
 
-            --muted: #999999;
+    --pink: #e79aaa;
 
-            --border: #eadfe0;
+    --dark-pink: #d96c8a;
 
-            --white: #ffffff;
-        }
+    --soft-pink: #fff0f3;
 
+    --text: #333333;
 
-        * {
-            box-sizing: border-box;
-        }
+    --muted: #999999;
 
+}
 
-        body {
 
-            margin: 0;
+/* =========================
+   RESET
+========================= */
 
-            min-height: 100vh;
+* {
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #f8e8ed,
-                    #eee8f5
-                );
+    box-sizing: border-box;
 
-            font-family:
-                "Quicksand",
-                sans-serif;
+}
 
-            display: flex;
 
-            justify-content: center;
+body {
 
-            align-items: center;
+    margin: 0;
 
-            padding: 20px;
-        }
+    min-height: 100vh;
 
+    background:
+        linear-gradient(
+            135deg,
+            #f8e8ed,
+            #eee8f5
+        );
 
-        /* =========================
-           APP
-        ========================== */
+    font-family:
+        "Quicksand",
+        sans-serif;
 
-        #app-container {
+    display: flex;
 
-            width: 390px;
+    justify-content: center;
 
-            height: 720px;
+    align-items: center;
 
-            max-width: 100%;
+    padding: 20px;
 
-            max-height: calc(100vh - 40px);
+}
 
-            background: var(--paper);
 
-            border: 7px solid white;
+/* =========================
+   APP
+========================= */
 
-            border-radius: 25px;
+#app-container {
 
-            box-shadow:
-                0 25px 60px
-                rgba(70, 40, 50, 0.20);
+    width: 390px;
 
-            position: relative;
+    height: 720px;
 
-            overflow: hidden;
+    max-width: 100%;
 
-            display: flex;
+    max-height: calc(100vh - 40px);
 
-            flex-direction: column;
-        }
+    background: var(--paper);
 
+    border: 7px solid white;
 
-        /* =========================
-           CUTE STATIC DECORATIONS
-        ========================== */
+    border-radius: 25px;
 
-        .doodle {
+    box-shadow:
+        0 25px 60px
+        rgba(70, 40, 50, 0.20);
 
-            position: absolute;
+    position: relative;
 
-            pointer-events: none;
+    overflow: hidden;
 
-            z-index: 30;
+    display: flex;
 
-            user-select: none;
+    flex-direction: column;
 
-            opacity: 0.65;
-        }
+}
 
 
-        .doodle-1 {
+/* =========================
+   STATIC CUTE DOODLES
+========================= */
 
-            top: 9px;
+.doodle {
 
-            left: 12px;
+    position: absolute;
 
-            color: #e4a0b0;
+    pointer-events: none;
 
-            font-size: 23px;
+    z-index: 30;
 
-            transform: rotate(-15deg);
-        }
+    user-select: none;
 
+    opacity: 0.65;
 
-        .doodle-2 {
+}
 
-            top: 14px;
 
-            right: 14px;
+.doodle-1 {
 
-            color: #cba4d5;
+    top: 9px;
 
-            font-size: 28px;
+    left: 12px;
 
-            transform: rotate(12deg);
-        }
+    color: #e4a0b0;
 
+    font-size: 23px;
 
-        .doodle-3 {
+    transform: rotate(-15deg);
 
-            top: 44%;
+}
 
-            left: 7px;
 
-            color: #e0b47e;
+.doodle-2 {
 
-            font-size: 19px;
-        }
+    top: 14px;
 
+    right: 14px;
 
-        .doodle-4 {
+    color: #cba4d5;
 
-            top: 57%;
+    font-size: 28px;
 
-            right: 7px;
+    transform: rotate(12deg);
 
-            color: #e6a4b4;
+}
 
-            font-size: 23px;
 
-            transform: rotate(10deg);
-        }
+.doodle-3 {
 
+    top: 44%;
 
-        .doodle-5 {
+    left: 7px;
 
-            bottom: 78px;
+    color: #e0b47e;
 
-            left: 12px;
+    font-size: 19px;
 
-            color: #c9a5d4;
+}
 
-            font-size: 20px;
-        }
 
+.doodle-4 {
 
-        .doodle-6 {
+    top: 57%;
 
-            bottom: 78px;
+    right: 7px;
 
-            right: 12px;
+    color: #e6a4b4;
 
-            color: #d9b07d;
+    font-size: 23px;
 
-            font-size: 23px;
-        }
+    transform: rotate(10deg);
 
+}
 
-        /* =========================
-           HEADER
-        ========================== */
 
-        header {
+.doodle-5 {
 
-            padding: 17px 20px 14px;
+    bottom: 78px;
 
-            text-align: center;
+    left: 12px;
 
-            border-bottom:
-                1px dashed #ddd;
+    color: #c9a5d4;
 
-            position: relative;
+    font-size: 20px;
 
-            z-index: 5;
-        }
+}
 
 
-        h1 {
+.doodle-6 {
 
-            margin: 0;
+    bottom: 78px;
 
-            font-family:
-                "Dancing Script",
-                cursive;
+    right: 12px;
 
-            font-size: 37px;
+    color: #d9b07d;
 
-            color: #333;
-        }
+    font-size: 23px;
 
+}
 
-        .subtitle {
 
-            font-size: 11px;
+/* =========================
+   HEADER
+========================= */
 
-            color: #aaa;
+header {
 
-            margin-top: -2px;
-        }
+    padding: 17px 20px 14px;
 
+    text-align: center;
 
-        .page-counter {
+    border-bottom:
+        1px dashed #ddd;
 
-            margin-top: 6px;
+    position: relative;
 
-            font-size: 12px;
+    z-index: 5;
 
-            color: #888;
-        }
+}
 
 
-        /* =========================
-           JOURNAL AREA
-        ========================== */
+h1 {
 
-        #journal-content {
+    margin: 0;
 
-            flex: 1;
+    font-family:
+        "Dancing Script",
+        cursive;
 
-            overflow-y: auto;
+    font-size: 37px;
 
-            padding: 18px 22px;
+    color: #333;
 
-            position: relative;
+}
 
-            z-index: 2;
-        }
 
+.subtitle {
 
-        /* =========================
-           PHOTO
-        ========================== */
+    font-size: 11px;
 
-        #photo-slot {
+    color: #aaa;
 
-            width: 100%;
+    margin-top: -2px;
 
-            height: 145px;
+}
 
-            border:
 
-                2px dashed #d9cdd0;
+.page-counter {
 
-            border-radius: 15px;
+    margin-top: 6px;
 
-            background: #f8f4f3;
+    font-size: 12px;
 
-            display: flex;
+    color: #888;
 
-            justify-content: center;
+}
 
-            align-items: center;
 
-            overflow: hidden;
+/* =========================
+   JOURNAL
+========================= */
 
-            cursor: pointer;
+#journal-content {
 
-            position: relative;
+    flex: 1;
 
-            transition: 0.2s;
-        }
+    overflow-y: auto;
 
+    padding: 18px 22px;
 
-        #photo-slot:hover {
+    position: relative;
 
-            border-color: var(--pink);
+    z-index: 2;
 
-            background: #fff7f8;
-        }
+}
 
 
-        #photo-slot img {
+/* =========================
+   PHOTO
+========================= */
 
-            width: 100%;
+#photo-slot {
 
-            height: 100%;
+    width: 100%;
 
-            object-fit: cover;
-        }
+    height: 145px;
 
+    border:
+        2px dashed #d9cdd0;
 
-        #photo-label {
+    border-radius: 15px;
 
-            color: #999;
+    background: #f8f4f3;
 
-            font-size: 13px;
+    display: flex;
 
-            text-align: center;
-        }
+    justify-content: center;
 
+    align-items: center;
 
-        /* Photo controls */
+    overflow: hidden;
 
-        #photo-controls {
+    cursor: pointer;
 
-            display: none;
+    position: relative;
 
-            position: absolute;
+    transition: 0.2s;
 
-            bottom: 8px;
+}
 
-            right: 8px;
 
-            gap: 5px;
+#photo-slot:hover {
 
-            z-index: 5;
-        }
+    border-color: var(--pink);
 
+    background: #fff7f8;
 
-        #photo-controls button {
+}
 
-            border: none;
 
-            background: rgba(255,255,255,0.9);
+#photo-slot img {
 
-            padding: 5px 9px;
+    width: 100%;
 
-            border-radius: 15px;
+    height: 100%;
 
-            font-size: 11px;
+    object-fit: cover;
 
-            cursor: pointer;
+}
 
-            box-shadow:
-                0 2px 6px
-                rgba(0,0,0,0.15);
-        }
 
+#photo-label {
 
-        /* =========================
-           JOURNAL TEXT
-        ========================== */
+    color: #999;
 
-        #journal-text {
+    font-size: 13px;
 
-            width: 100%;
+    text-align: center;
 
-            height: 245px;
+}
 
-            margin-top: 15px;
 
-            padding: 8px 12px;
+#photo-controls {
 
-            background: transparent;
+    display: none;
 
-            border: none;
+    position: absolute;
 
-            border-left:
-                2px solid var(--pink);
+    right: 30px;
 
-            outline: none;
+    top: 155px;
 
-            resize: none;
+    gap: 5px;
 
-            font-family:
-                "Quicksand",
-                sans-serif;
+    z-index: 20;
 
-            font-size: 16px;
+}
 
-            line-height: 1.65;
 
-            color: var(--text);
+#photo-controls button {
 
-            transition: color 0.2s;
-        }
+    border: none;
 
+    background:
+        rgba(255,255,255,0.92);
 
-        #journal-text::placeholder {
+    padding: 5px 9px;
 
-            color: #b9b0b2;
-        }
+    border-radius: 15px;
 
+    font-size: 11px;
 
-        /* =========================
-           COLOR TOOLBAR
-        ========================== */
+    cursor: pointer;
 
-        .toolbar {
+}
 
-            background: white;
 
-            border-top:
-                1px solid #eee;
+/* =========================
+   TEXT
+========================= */
 
-            padding: 9px;
+#journal-text {
 
-            display: flex;
+    width: 100%;
 
-            align-items: center;
+    height: 245px;
 
-            justify-content: center;
+    margin-top: 15px;
 
-            gap: 8px;
+    padding: 8px 12px;
 
-            position: relative;
+    background: transparent;
 
-            z-index: 40;
-        }
+    border: none;
 
+    border-left:
+        2px solid var(--pink);
 
-        .toolbar-title {
+    outline: none;
 
-            font-size: 11px;
+    resize: none;
 
-            color: #888;
+    font-family:
+        "Quicksand",
+        sans-serif;
 
-            font-weight: 600;
-        }
+    font-size: 16px;
 
+    line-height: 1.65;
 
-        .color-button {
+    color: var(--text);
 
-            width: 25px;
+}
 
-            height: 25px;
 
-            border-radius: 50%;
+#journal-text::placeholder {
 
-            border: 2px solid white;
+    color: #b9b0b2;
 
-            box-shadow:
-                0 2px 5px
-                rgba(0,0,0,0.15);
+}
 
-            cursor: pointer;
 
-            transition: 0.15s;
-        }
+/* =========================
+   TOOLBAR
+========================= */
 
+.toolbar {
 
-        .color-button:hover {
+    background: white;
 
-            transform: scale(1.15);
-        }
+    border-top:
+        1px solid #eee;
 
+    padding: 9px;
 
-        .black {
-            background: #222;
-        }
+    display: flex;
 
+    align-items: center;
 
-        .brown {
-            background: #795548;
-        }
+    justify-content: center;
 
+    gap: 8px;
 
-        .blue {
-            background: #5577a8;
-        }
+    position: relative;
 
+    z-index: 40;
 
-        .purple {
-            background: #9070aa;
-        }
+}
 
 
-        .pink {
-            background: #d96c8a;
-        }
+.toolbar-title {
 
+    font-size: 11px;
 
-        /* Custom color */
+    color: #888;
 
-        .custom-color {
+    font-weight: 600;
 
-            width: 27px;
+}
 
-            height: 27px;
 
-            border-radius: 50%;
+.color-button {
 
-            position: relative;
+    width: 25px;
 
-            display: flex;
+    height: 25px;
 
-            justify-content: center;
+    border-radius: 50%;
 
-            align-items: center;
+    border: 2px solid white;
 
-            cursor: pointer;
+    box-shadow:
+        0 2px 5px
+        rgba(0,0,0,0.15);
 
-            font-size: 16px;
+    cursor: pointer;
 
-            overflow: hidden;
-        }
+}
 
 
-        #text-color-picker {
+.black {
 
-            position: absolute;
+    background: #222;
 
-            width: 40px;
+}
 
-            height: 40px;
 
-            opacity: 0;
+.brown {
 
-            cursor: pointer;
-        }
+    background: #795548;
 
+}
 
-        /* =========================
-           NAVIGATION
-        ========================== */
 
-        .nav-buttons {
+.blue {
 
-            display: flex;
+    background: #5577a8;
 
-            justify-content: space-between;
+}
 
-            align-items: center;
 
-            gap: 5px;
+.purple {
 
-            padding: 9px 13px;
+    background: #9070aa;
 
-            background: white;
+}
 
-            position: relative;
 
-            z-index: 40;
-        }
+.pink {
 
+    background: #d96c8a;
 
-        .nav-buttons button {
+}
 
-            border:
-                1px solid #e1d9da;
 
-            background: white;
+.custom-color {
 
-            padding: 7px 11px;
+    width: 27px;
 
-            border-radius: 20px;
+    height: 27px;
 
-            font-family: inherit;
+    border-radius: 50%;
 
-            font-size: 11px;
+    display: flex;
 
-            cursor: pointer;
+    align-items: center;
 
-            transition: 0.2s;
-        }
+    justify-content: center;
 
+    cursor: pointer;
 
-        .nav-buttons button:hover {
+    position: relative;
 
-            background: var(--soft-pink);
+    font-size: 16px;
 
-            border-color: var(--pink);
-        }
+    overflow: hidden;
 
+}
 
-        .save-button {
 
-            background:
-                #fff0f3 !important;
+#text-color-picker {
 
-            border-color:
-                #f0c4ce !important;
+    position: absolute;
 
-            color:
-                #c75d78;
-        }
+    width: 40px;
 
+    height: 40px;
 
-        /* =========================
-           EXTRA ACTIONS
-        ========================== */
+    opacity: 0;
 
-        .extra-actions {
+    cursor: pointer;
 
-            display: flex;
+}
 
-            justify-content: center;
 
-            gap: 8px;
+/* =========================
+   NAVIGATION
+========================= */
 
-            padding: 0 10px 8px;
+.nav-buttons {
 
-            background: white;
-        }
+    display: flex;
 
+    justify-content: space-between;
 
-        .extra-actions button {
+    align-items: center;
 
-            border: none;
+    gap: 5px;
 
-            background: transparent;
+    padding: 9px 13px;
 
-            color: #aaa;
+    background: white;
 
-            font-size: 10px;
+    position: relative;
 
-            cursor: pointer;
-        }
+    z-index: 40;
 
+}
 
-        .extra-actions button:hover {
 
-            color: var(--dark-pink);
-        }
+.nav-buttons button {
 
+    border:
+        1px solid #e1d9da;
 
-        /* =========================
-           MESSAGE
-        ========================== */
+    background: white;
 
-        #message {
+    padding: 7px 11px;
 
-            position: absolute;
+    border-radius: 20px;
 
-            top: 55px;
+    font-family: inherit;
 
-            left: 50%;
+    font-size: 11px;
 
-            transform:
-                translateX(-50%)
-                translateY(-10px);
+    cursor: pointer;
 
-            background:
-                rgba(70, 55, 60, 0.92);
+}
 
-            color: white;
 
-            padding: 7px 14px;
+.nav-buttons button:hover {
 
-            border-radius: 20px;
+    background:
+        var(--soft-pink);
 
-            font-size: 11px;
+    border-color:
+        var(--pink);
 
-            opacity: 0;
+}
 
-            pointer-events: none;
 
-            transition: 0.25s;
+.save-button {
 
-            z-index: 100;
-        }
+    background:
+        #fff0f3 !important;
 
+    border-color:
+        #f0c4ce !important;
 
-        #message.show {
+    color:
+        #c75d78;
 
-            opacity: 1;
+}
 
-            transform:
-                translateX(-50%)
-                translateY(0);
-        }
 
+/* =========================
+   EXTRA
+========================= */
 
-        /* =========================
-           MOBILE
-        ========================== */
+.extra-actions {
 
-        @media (max-width: 430px) {
+    display: flex;
 
-            body {
+    justify-content: center;
 
-                padding: 0;
+    padding:
+        0 10px 8px;
 
-                background: var(--paper);
-            }
+    background: white;
 
+}
 
-            #app-container {
 
-                width: 100%;
+.extra-actions button {
 
-                height: 100vh;
+    border: none;
 
-                max-height: none;
+    background: transparent;
 
-                border: none;
+    color: #aaa;
 
-                border-radius: 0;
+    font-size: 10px;
 
-                box-shadow: none;
-            }
-        }
+    cursor: pointer;
 
-    </style>
+}
+
+
+.extra-actions button:hover {
+
+    color:
+        var(--dark-pink);
+
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+#message {
+
+    position: absolute;
+
+    top: 55px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(-10px);
+
+    background:
+        rgba(70,55,60,0.92);
+
+    color: white;
+
+    padding:
+        7px 14px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 0.25s;
+
+    z-index: 100;
+
+}
+
+
+#message.show {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 430px) {
+
+    body {
+
+        padding: 0;
+
+        background:
+            var(--paper);
+
+    }
+
+
+    #app-container {
+
+        width: 100%;
+
+        height: 100vh;
+
+        max-height: none;
+
+        border: none;
+
+        border-radius: 0;
+
+        box-shadow: none;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -753,230 +796,200 @@
 <div id="app-container">
 
 
-    <!-- =========================
-         STATIC DOODLES
-    ========================== -->
+<!-- CUTE STATIC DECORATIONS -->
 
-    <div class="doodle doodle-1">✿</div>
+<div class="doodle doodle-1">✿</div>
 
-    <div class="doodle doodle-2">♡</div>
+<div class="doodle doodle-2">♡</div>
 
-    <div class="doodle doodle-3">✦</div>
+<div class="doodle doodle-3">✦</div>
 
-    <div class="doodle doodle-4">❀</div>
+<div class="doodle doodle-4">❀</div>
 
-    <div class="doodle doodle-5">♡</div>
+<div class="doodle doodle-5">♡</div>
 
-    <div class="doodle doodle-6">✧</div>
+<div class="doodle doodle-6">✧</div>
 
 
-    <!-- =========================
-         MESSAGE
-    ========================== -->
+<!-- MESSAGE -->
 
-    <div id="message"></div>
+<div id="message"></div>
 
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+<!-- HEADER -->
 
-    <header>
+<header>
 
-        <h1>Dear Me</h1>
+<h1>Dear Me</h1>
 
-        <div class="subtitle">
-            little thoughts • big dreams • memories
-        </div>
+<div class="subtitle">
 
-        <div class="page-counter">
+little thoughts • big dreams • memories
 
-            Page
+</div>
 
-            <span id="current-page">
-                1
-            </span>
+<div class="page-counter">
 
-            of 50
+Page
 
-        </div>
+<span id="current-page">1</span>
 
-    </header>
+of 50
 
+</div>
 
-    <!-- =========================
-         JOURNAL
-    ========================== -->
+</header>
 
-    <main id="journal-content">
 
+<!-- JOURNAL -->
 
-        <!-- PHOTO -->
+<main id="journal-content">
 
-        <div id="photo-slot"
-             onclick="openPhotoPicker()">
 
-            <span id="photo-label">
-                📸<br>
-                Tap to add a memory
-            </span>
+<div id="photo-slot"
+     onclick="openPhotoPicker()">
 
-        </div>
+<span id="photo-label">
 
+📸<br>
 
-        <input
-            type="file"
-            id="file-input"
-            hidden
-            accept="image/*"
-        >
+Tap to add a memory
 
+</span>
 
-        <!-- PHOTO CONTROLS -->
+</div>
 
-        <div id="photo-controls">
 
-            <button onclick="changePhoto(event)">
-                Change
-            </button>
+<input
+    type="file"
+    id="file-input"
+    hidden
+    accept="image/*"
+>
 
-            <button onclick="removePhoto(event)">
-                Remove
-            </button>
 
-        </div>
+<div id="photo-controls">
 
+<button onclick="changePhoto(event)">
+Change
+</button>
 
-        <!-- TEXT -->
+<button onclick="removePhoto(event)">
+Remove
+</button>
 
-        <textarea
-            id="journal-text"
-            placeholder="Write your thoughts, dreams, little moments... 💗">
-        </textarea>
+</div>
 
 
-    </main>
+<textarea
+    id="journal-text"
+    placeholder="Write your thoughts, dreams, little moments... 💗">
+</textarea>
 
 
-    <!-- =========================
-         COLOR TOOLBAR
-    ========================== -->
+</main>
 
-    <div class="toolbar">
 
-        <span class="toolbar-title">
-            Text
-        </span>
+<!-- COLOR TOOLBAR -->
 
+<div class="toolbar">
 
-        <button
-            class="color-button black"
-            onclick="setTextColor('#222222')"
-            aria-label="Black text">
-        </button>
+<span class="toolbar-title">
+Text
+</span>
 
 
-        <button
-            class="color-button brown"
-            onclick="setTextColor('#795548')"
-            aria-label="Brown text">
-        </button>
+<button
+    class="color-button black"
+    onclick="setTextColor('#222222')">
+</button>
 
 
-        <button
-            class="color-button blue"
-            onclick="setTextColor('#5577a8')"
-            aria-label="Blue text">
-        </button>
+<button
+    class="color-button brown"
+    onclick="setTextColor('#795548')">
+</button>
 
 
-        <button
-            class="color-button purple"
-            onclick="setTextColor('#9070aa')"
-            aria-label="Purple text">
-        </button>
+<button
+    class="color-button blue"
+    onclick="setTextColor('#5577a8')">
+</button>
 
 
-        <button
-            class="color-button pink"
-            onclick="setTextColor('#d96c8a')"
-            aria-label="Pink text">
-        </button>
+<button
+    class="color-button purple"
+    onclick="setTextColor('#9070aa')">
+</button>
 
 
-        <label
-            class="custom-color"
-            title="Choose your own color">
+<button
+    class="color-button pink"
+    onclick="setTextColor('#d96c8a')">
+</button>
 
-            🎨
 
-            <input
-                type="color"
-                id="text-color-picker"
-                value="#222222"
-            >
+<label class="custom-color">
 
-        </label>
+🎨
 
-    </div>
+<input
+    type="color"
+    id="text-color-picker"
+    value="#222222"
+>
 
+</label>
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
+</div>
 
-    <div class="nav-buttons">
 
+<!-- NAVIGATION -->
 
-        <button onclick="prevPage()">
+<div class="nav-buttons">
 
-            ← Back
+<button onclick="prevPage()">
 
-        </button>
+← Back
 
+</button>
 
-        <button
-            class="save-button"
-            onclick="savePage()">
 
-            💗 Save
+<button
+    class="save-button"
+    onclick="savePage()">
 
-        </button>
+💗 Save
 
+</button>
 
-        <button onclick="nextPage()">
 
-            Next →
+<button onclick="nextPage()">
 
-        </button>
+Next →
 
+</button>
 
-    </div>
+</div>
 
 
-    <!-- EXTRA ACTIONS -->
+<!-- EXTRA -->
 
-    <div class="extra-actions">
+<div class="extra-actions">
 
-        <button onclick="clearCurrentPage()">
+<button onclick="clearCurrentPage()">
 
-            Clear this page
+Clear this page
 
-        </button>
+</button>
 
-    </div>
+</div>
 
 
 </div>
 
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
-
 
 /* =========================
    VARIABLES
@@ -1029,12 +1042,12 @@ const message =
     );
 
 
+let messageTimer;
+
+
 /* =========================
    MESSAGE
 ========================= */
-
-let messageTimer;
-
 
 function showMessage(text) {
 
@@ -1042,9 +1055,7 @@ function showMessage(text) {
 
     message.classList.add("show");
 
-
     clearTimeout(messageTimer);
-
 
     messageTimer =
         setTimeout(
@@ -1072,14 +1083,12 @@ function setTextColor(color) {
     colorPicker.value =
         color;
 
-
     localStorage.setItem(
-
         `dearme-color-${currentPage}`,
-
         color
     );
 
+    savePage(false);
 
     showMessage(
         "Text color changed 🎨"
@@ -1088,12 +1097,13 @@ function setTextColor(color) {
 
 
 /* =========================
-   PHOTO PICKER
+   PHOTO
 ========================= */
 
 function openPhotoPicker() {
 
     fileInput.click();
+
 }
 
 
@@ -1102,12 +1112,9 @@ function changePhoto(event) {
     event.stopPropagation();
 
     fileInput.click();
+
 }
 
-
-/* =========================
-   LOAD PHOTO
-========================= */
 
 fileInput.addEventListener(
     "change",
@@ -1116,11 +1123,8 @@ fileInput.addEventListener(
         const file =
             event.target.files[0];
 
-
         if (!file) return;
 
-
-        /* Limit very large images */
 
         if (
             file.size >
@@ -1147,19 +1151,14 @@ fileInput.addEventListener(
                 const imageData =
                     e.target.result;
 
-
                 localStorage.setItem(
-
                     `dearme-photo-${currentPage}`,
-
                     imageData
                 );
-
 
                 displayPhoto(
                     imageData
                 );
-
 
                 showMessage(
                     "Memory added 📸💗"
@@ -1181,21 +1180,17 @@ function displayPhoto(imageData) {
 
     photoSlot.innerHTML = "";
 
-
     const image =
         document.createElement(
             "img"
         );
 
-
     image.src =
         imageData;
-
 
     photoSlot.appendChild(
         image
     );
-
 
     photoControls.style.display =
         "flex";
@@ -1210,15 +1205,11 @@ function removePhoto(event) {
 
     event.stopPropagation();
 
-
     localStorage.removeItem(
-
         `dearme-photo-${currentPage}`
     );
 
-
     fileInput.value = "";
-
 
     photoSlot.innerHTML = `
 
@@ -1232,10 +1223,8 @@ function removePhoto(event) {
 
     `;
 
-
     photoControls.style.display =
         "none";
-
 
     showMessage(
         "Photo removed 🗑️"
@@ -1244,28 +1233,21 @@ function removePhoto(event) {
 
 
 /* =========================
-   SAVE PAGE
+   SAVE
 ========================= */
 
-function savePage(showSavedMessage = true) {
-
-
-    /* Save text */
+function savePage(
+    showSavedMessage = true
+) {
 
     localStorage.setItem(
-
         `dearme-page-${currentPage}`,
-
         textarea.value
     );
 
 
-    /* Save color */
-
     localStorage.setItem(
-
         `dearme-color-${currentPage}`,
-
         textarea.style.color
     );
 
@@ -1275,7 +1257,9 @@ function savePage(showSavedMessage = true) {
         showMessage(
             `Page ${currentPage} saved 💗`
         );
+
     }
+
 }
 
 
@@ -1285,58 +1269,33 @@ function savePage(showSavedMessage = true) {
 
 function updatePage() {
 
-
-    /* Page number */
-
     pageNumber.textContent =
         currentPage;
 
 
-    /* Text */
-
     textarea.value =
         localStorage.getItem(
-
             `dearme-page-${currentPage}`
-
         ) || "";
 
 
-    /* Color */
-
     const savedColor =
         localStorage.getItem(
-
             `dearme-color-${currentPage}`
-
         );
 
 
-    if (savedColor) {
-
-        textarea.style.color =
-            savedColor;
-
-        colorPicker.value =
-            savedColor;
-
-    } else {
-
-        textarea.style.color =
-            "#222222";
-
-        colorPicker.value =
-            "#222222";
-    }
+    textarea.style.color =
+        savedColor || "#222222";
 
 
-    /* Photo */
+    colorPicker.value =
+        savedColor || "#222222";
+
 
     const savedPhoto =
         localStorage.getItem(
-
             `dearme-photo-${currentPage}`
-
         );
 
 
@@ -1362,25 +1321,24 @@ function updatePage() {
 
         photoControls.style.display =
             "none";
+
     }
 
-
-    /* Scroll to top */
 
     document
         .getElementById(
             "journal-content"
         )
         .scrollTop = 0;
+
 }
 
 
 /* =========================
-   NEXT PAGE
+   NEXT
 ========================= */
 
 function nextPage() {
-
 
     savePage(false);
 
@@ -1400,17 +1358,16 @@ function nextPage() {
 
     currentPage++;
 
-
     updatePage();
+
 }
 
 
 /* =========================
-   PREVIOUS PAGE
+   PREVIOUS
 ========================= */
 
 function prevPage() {
-
 
     savePage(false);
 
@@ -1429,23 +1386,20 @@ function prevPage() {
 
     currentPage--;
 
-
     updatePage();
+
 }
 
 
 /* =========================
-   CLEAR PAGE
+   CLEAR
 ========================= */
 
 function clearCurrentPage() {
 
-
     const confirmed =
         confirm(
-
             "Clear everything on this page? 💗"
-
         );
 
 
@@ -1453,19 +1407,16 @@ function clearCurrentPage() {
 
 
     localStorage.removeItem(
-
         `dearme-page-${currentPage}`
     );
 
 
     localStorage.removeItem(
-
         `dearme-color-${currentPage}`
     );
 
 
     localStorage.removeItem(
-
         `dearme-photo-${currentPage}`
     );
 
@@ -1502,11 +1453,12 @@ function clearCurrentPage() {
     showMessage(
         "Page cleared 🌷"
     );
+
 }
 
 
 /* =========================
-   AUTO SAVE WHILE TYPING
+   AUTO SAVE
 ========================= */
 
 let autoSaveTimer;
@@ -1515,7 +1467,6 @@ let autoSaveTimer;
 textarea.addEventListener(
     "input",
     function() {
-
 
         clearTimeout(
             autoSaveTimer
@@ -1553,11 +1504,53 @@ colorPicker.addEventListener(
 
 
 /* =========================
+   SERVICE WORKER
+========================= */
+
+if (
+    "serviceWorker"
+    in navigator
+) {
+
+    window.addEventListener(
+        "load",
+        function() {
+
+            navigator.serviceWorker
+                .register(
+                    "./service-worker.js"
+                )
+                .then(
+                    function() {
+
+                        console.log(
+                            "DearMe service worker registered 💗"
+                        );
+
+                    }
+                )
+                .catch(
+                    function(error) {
+
+                        console.log(
+                            "Service worker error:",
+                            error
+                        );
+
+                    }
+                );
+
+        }
+    );
+
+}
+
+
+/* =========================
    START
 ========================= */
 
 updatePage();
-
 
 </script>
 
