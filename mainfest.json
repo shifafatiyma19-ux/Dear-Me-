@@ -1,0 +1,11 @@
+{
+    "name": "DearMe — My Little Diary",
+    "short_name": "DearMe",
+    "description": "A cute personal diary for thoughts, goals, memories and moments.",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#fffaf4",
+    "theme_color": "#e79aaa",
+    "orientation": "portrait"
+}
